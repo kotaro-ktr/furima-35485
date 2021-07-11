@@ -2,16 +2,16 @@
 
 ## usersテーブル
 
-| column             | type   | options                                   |
-| ------------------ | ------ | ----------------------------------------- |
-| family_name        | string | null: false, with: /\A[ぁ-んァ-ヶ一-龥]/+\z |
-| family_name_1      | string | null: false, with: /\A[ァ-ヶー－]+\z/      |
-| first_name         | string | null: false, with: /\A[ぁ-んァ-ヶ一-龥]/+\z |
-| first_name_1       | string | null: false , with:/\A[ァ-ヶー－]+\z/      |
-| birthday           | date   | null: false                               |
-| nickname           | string | null: false                               |
-| email              | string | null: false, uniqueness: true             |
-| encrypted_password | string | null: false, length: {maximum: 6}         |
+| column             | type   | options                   |
+| ------------------ | ------ | ------------------------- |
+| family_name        | string | null: false               |
+| family_name_1      | string | null: false               |
+| first_name         | string | null: false               |
+| first_name_1       | string | null: false               |
+| birthday           | date   | null: false               |
+| nickname           | string | null: false               |
+| email              | string | null: false, unique: true |
+| encrypted_password | string | null: false               |
 
 ## Association
 - has_many :items
@@ -22,12 +22,11 @@
 | --------------- | ------- | ------------------------------ |
 | name            | string  | null: false                    |
 | description     | text    | null:false                     |
-| category_id     | integer | null: false                    |
 | charge_id       | integer | null: false                    |
 | price           | integer | null: false                    |
 | user_id         | integer | null: false, foreign_key: true |
 | category_id     | integer | null: false                    |
-| status          | string  | null: false                    |
+| status_id       | integer | null: false                    |
 | prefecture_id   | integer | null: false                    |
 | shipping_day_id | integer | null: false                    |
 
