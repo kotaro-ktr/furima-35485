@@ -18,27 +18,27 @@
 - has_many :purchases
 
 ## itemsテーブル
-| column          | type    | options                        |
-| --------------- | ------- | ------------------------------ |
-| name            | string  | null: false                    |
-| description     | text    | null:false                     |
-| charge_id       | integer | null: false                    |
-| price           | integer | null: false                    |
-| user_id         | integer | null: false, foreign_key: true |
-| category_id     | integer | null: false                    |
-| status_id       | integer | null: false                    |
-| prefecture_id   | integer | null: false                    |
-| shipping_day_id | integer | null: false                    |
+| column          | type       | options                        |
+| --------------- | ---------- | ------------------------------ |
+| name            | string     | null: false                    |
+| description     | text       | null:false                     |
+| charge_id       | integer    | null: false                    |
+| price           | integer    | null: false                    |
+| user            | references | null: false, foreign_key: true |
+| category_id     | integer    | null: false                    |
+| status_id       | integer    | null: false                    |
+| prefecture_id   | integer    | null: false                    |
+| shipping_day_id | integer    | null: false                    |
 
 ## Association
 - belongs_to :user
 - has_one :purchase
 
 ## purchasesテーブル
-| column  | type    | options                        |
-| ------- | ------- | ------------------------------ |
-| item_id | integer | null: false,foreign_key: true  |
-| user_id | integer | null: false, foreign_key: true |
+| column | type       | options                        |
+| ------ | ---------- | ------------------------------ |
+| item   | references | null: false,foreign_key: true  |
+| user   | references | null: false, foreign_key: true |
 
 ## Association
 - belongs_to :user
@@ -46,15 +46,15 @@
 - has_one :shipping
 
 ## shippingsテーブル
-| column         | type    | options                        |
-| -------------- | ------- | ------------------------------ |
-| postal_code    | string  | null: false                    |
-| tel            | string  | null: false                    |
-| address        | string  | null: false                    |
-| municipalities | string  | null: false                    |
-| prefecture_id  | integer | null: false                    |
-| mansion        | string  |                                |
-| purchase_id    | integer | null: false, foreign_key: true |
+| column         | type       | options                        |
+| -------------- | ---------- | ------------------------------ |
+| postal_code    | string     | null: false                    |
+| tel            | string     | null: false                    |
+| address        | string     | null: false                    |
+| municipalities | string     | null: false                    |
+| prefecture_id  | integer    | null: false                    |
+| mansion        | string     |                                |
+| purchase       | references | null: false, foreign_key: true |
 
 ## Association
 - belongs_to :purchase
