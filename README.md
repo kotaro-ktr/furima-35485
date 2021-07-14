@@ -34,7 +34,7 @@
 - belongs_to :user
 - has_one :purchase
 
-## purchasesテーブル
+## ordersテーブル
 | column | type       | options                        |
 | ------ | ---------- | ------------------------------ |
 | item   | references | null: false,foreign_key: true  |
@@ -54,7 +54,7 @@
 | municipalities | string     | null: false                    |
 | prefecture_id  | integer    | null: false                    |
 | mansion        | string     |                                |
-| purchase       | references | null: false, foreign_key: true |
+| order          | references | null: false, foreign_key: true |
 
 ## Association
 - belongs_to :purchase
