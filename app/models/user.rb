@@ -11,8 +11,9 @@ class User < ApplicationRecord
          validates :family_name_1
          validates :first_name_1
   end
-  validates :email, presence: true, format: {with: /\A\S+@\S+\.\S+\z/ } 
-  validates :encrypted_password, presence: true, length: {minimum: 6}
+  validates :password, format: {with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: 'アルファベットと数字を混ぜて下さい'}
   validates :birthday, presence: true
   validates :nickname, presence: true
 end
+
+#validates :email, presence: true, format: {with: /\A\S+@\S+\.\S+\z/ }追加で記述するかも
