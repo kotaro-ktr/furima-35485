@@ -1,6 +1,6 @@
 <mxfile>
     <diagram id="9xkGm56PTMJfkh9cAH65" name="ページ1">
-        <mxGraphModel dx="1138" dy="1849" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="849" dy="1575" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -15,6 +15,8 @@
                         <mxPoint x="618.5" y="266" as="targetPoint"/>
                         <mxPoint x="340" y="411" as="sourcePoint"/>
                         <Array as="points">
+                            <mxPoint x="370" y="351"/>
+                            <mxPoint x="370" y="331"/>
                             <mxPoint x="619" y="331"/>
                         </Array>
                     </mxGeometry>
@@ -25,7 +27,7 @@
                         <mxPoint x="199" y="226" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="52" value="purchasesテーブル（購入記録）" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=11;" parent="1" vertex="1">
+                <mxCell id="52" value="ordersテーブル（購入記録）" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=11;" parent="1" vertex="1">
                     <mxGeometry x="79" y="290" width="201" height="76" as="geometry"/>
                 </mxCell>
                 <mxCell id="71" value="user_id（購入者）" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;aspect=fixed;" parent="52" vertex="1">
@@ -94,7 +96,7 @@
                 <mxCell id="106" value="mansion（ビル・マンション）" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="104" vertex="1">
                     <mxGeometry y="156" width="201" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="107" value="purchase_id（購入記録）" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="104" vertex="1">
+                <mxCell id="107" value="orders_id（購入記録）" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="104" vertex="1">
                     <mxGeometry y="186" width="201" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="116" value="usersテーブル" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
