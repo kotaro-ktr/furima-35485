@@ -5,11 +5,7 @@ class ItemsController < ApplicationController
   end
 
   def new
-    if user_signed_in?
-      @item = Item.new
-    else
-      render :index
-    end
+    @item = Item.new
   end
 
   def create
