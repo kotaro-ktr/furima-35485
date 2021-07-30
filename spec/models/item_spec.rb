@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Item, type: :model do
-  
   before do
     @item = FactoryBot.build(:item)
   end
@@ -12,25 +11,24 @@ RSpec.describe Item, type: :model do
         expect(@item).to be_valid
       end
     end
-    
+
     context '商品出品できない場合' do
       it '商品画像を1枚つけることが必須であること' do
         @item.image = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include"Image can't be blank"
+        expect(@item.errors.full_messages).to include "Image can't be blank"
       end
 
       it '商品名が必須であること' do
         @item.name = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include"Name can't be blank"
-
+        expect(@item.errors.full_messages).to include "Name can't be blank"
       end
 
       it '商品の説明が必須であること' do
         @item.description = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include"Description can't be blank"
+        expect(@item.errors.full_messages).to include "Description can't be blank"
       end
 
       it 'カテゴリーの情報が必須であること' do
@@ -70,36 +68,34 @@ RSpec.describe Item, type: :model do
       end
 
       it '販売価格は、¥9,999,999以下の時のみ保存可能であること' do
-        @item.price = 100000000000
+        @item.price = 100_000_000_000
         @item.valid?
-        expect(@item.errors.full_messages).to include"Price is invalid. Input half-width characters"
+        expect(@item.errors.full_messages).to include 'Price is invalid. Input half-width characters'
       end
 
       it '販売価格は、¥300以上の時のみ保存可能であること' do
         @item.price = 100
         @item.valid?
-        expect(@item.errors.full_messages).to include"Price is invalid. Input half-width characters"
+        expect(@item.errors.full_messages).to include 'Price is invalid. Input half-width characters'
       end
 
       it '販売価格は半角英字だと保存不可能であること' do
         @item.price = 'test'
         @item.valid?
-        expect(@item.errors.full_messages).to include"Price is invalid. Input half-width characters"
+        expect(@item.errors.full_messages).to include 'Price is invalid. Input half-width characters'
       end
 
       it '販売価格は半角英数字混合だと保存不可能であること' do
         @item.price = 'test123'
         @item.valid?
-        expect(@item.errors.full_messages).to include"Price is invalid. Input half-width characters"
+        expect(@item.errors.full_messages).to include 'Price is invalid. Input half-width characters'
       end
 
       it '販売価格は全角だと保存不可能であること' do
         @item.price = 'テスト'
         @item.valid?
-        expect(@item.errors.full_messages).to include"Price is invalid. Input half-width characters"
+        expect(@item.errors.full_messages).to include 'Price is invalid. Input half-width characters'
       end
-
     end
   end
-
 end
