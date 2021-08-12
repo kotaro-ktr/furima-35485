@@ -23,7 +23,7 @@ RSpec.describe OrderShipping, type: :model do
       it '郵便番号がなければ購入できないこと' do
         @order_shipping.postal_code = ""
         @order_shipping.valid?
-        expect(@order_shipping.errors.full_messages).to include("Postal code can't be blank", "Postal code is invalid. Include hyphen(-)")
+        expect(@order_shipping.errors.full_messages).to include("Postal code can't be blank")
       end
 
       it '郵便番号はハイフンがないと購入でいないこと' do
@@ -39,7 +39,7 @@ RSpec.describe OrderShipping, type: :model do
       end
 
       it '都道府県は１（何も選択されていない状態）だと購入できないこと' do
-        @order_shipping.prefecture_id = "1"
+        @order_shipping.prefecture_id = 1
         @order_shipping.valid?
         expect(@order_shipping.errors.full_messages).to include("Prefecture must be other than 1")
       end
@@ -59,13 +59,20 @@ RSpec.describe OrderShipping, type: :model do
       it '電話番号がなければ購入できないこと' do
         @order_shipping.tel = ""
         @order_shipping.valid?
-        expect(@order_shipping.errors.full_messages).to include("Tel can't be blank", "Tel is wrong", "Tel is invalid. Input only number")
+        expect(@order_shipping.errors.full_messages).to include("Tel can't be blank")
       end
 
-      it '電話番号は１１桁必要なこと' do
-        @order_shipping.tel = "123"
+      it '電話番号は10桁以上必要なこと' do
+        @order_shipping.tel = "1234"
         @order_shipping.valid?
-        expect(@order_shipping.errors.full_messages).to include("Tel is wrong", "Tel is invalid. Input only number")
+        expect(@order_shipping.errors.full_messages).to include("Tel is too short")
+      end
+
+      it '電話番号は11桁より多いと無理なこと' do
+        @order_shipping.tel = "123456789101112"
+        @order_shipping.valid?
+        # binding.pry
+        expect(@order_shipping.errors.full_messages).to include("Tel is too long")
       end
 
       it '電話番号は数字のみでないと購入できないこと' do
@@ -73,7 +80,6 @@ RSpec.describe OrderShipping, type: :model do
         @order_shipping.valid?
         expect(@order_shipping.errors.full_messages).to include("Tel is invalid. Input only number")
       end
-
     end
   end
 end

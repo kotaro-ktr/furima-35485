@@ -9,9 +9,9 @@ class OrderShipping
     validates :prefecture_id, numericality: { other_than: 1}
     validates :address
     validates :town
-    validates :tel,
-      length: {is: 11, message: "is wrong"},
-      format: {with: /\A0[5789]0[-]?\d{4}[-]?\d{4}\z/, message: "is invalid. Input only number"}
+    validates :tel,length: {minimum: 10, message: "is too short"}
+    validates :tel,length: {maximum: 11, message: "is too long"}
+    validates :tel,format: {with: /\A[0-9]{10,11}\z/, message: "is invalid. Input only number"}
   end
 
   def save
