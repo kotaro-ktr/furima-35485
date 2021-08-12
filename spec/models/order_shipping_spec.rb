@@ -11,12 +11,6 @@ RSpec.describe OrderShipping, type: :model do
       it '全ての購入情報が入力されている場合' do
         expect(@order_shipping).to be_valid
       end
-      
-      it '建物名がなくても他の情報が入力されていれば購入できること' do
-        @order_shipping.mansion = ""
-        @order_shipping.valid?
-        expect(@order_shipping).to be_valid
-      end
     end
 
     context '商品購入できない場合' do
