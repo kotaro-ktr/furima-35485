@@ -11,7 +11,7 @@ RSpec.describe OrderShipping, type: :model do
       it '全ての購入情報が入力されている場合' do
         expect(@order_shipping).to be_valid
       end
-      
+
       it '建物名がなくても他の情報が入力されていれば購入できること' do
         @order_shipping.mansion = ""
         @order_shipping.valid?
@@ -85,6 +85,18 @@ RSpec.describe OrderShipping, type: :model do
         @order_shipping.tel = "123-3456-43"
         @order_shipping.valid?
         expect(@order_shipping.errors.full_messages).to include("Tel is invalid. Input only number")
+      end
+
+      it 'ユーザーががなければ購入できないこと' do
+        @order_shipping.user_id = ""
+        @order_shipping.valid?
+        expect(@order_shipping.errors.full_messages).to include("User can't be blank")
+      end
+
+      it '商品ががなければ購入できないこと' do
+        @order_shipping.item_id = ""
+        @order_shipping.valid?
+        expect(@order_shipping.errors.full_messages).to include("Item can't be blank")
       end
     end
   end
