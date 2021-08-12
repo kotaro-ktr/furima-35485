@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :item do
-    name                        { Faker::Name.initials(number: 2) }
+    name                        { 'アイテム' }
     description                 { Faker::Lorem.sentence }
     price                       { Faker::Number.number(digits: 7) }
     charge_id                   { 3 }
