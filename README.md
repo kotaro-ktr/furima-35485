@@ -57,7 +57,7 @@
 | order          | references | null: false, foreign_key: true |
 
 ## Association
-- belongs_to :purchase
+- belongs_to :order
 
 
 This README would normally document whatever steps are necessary to get the
