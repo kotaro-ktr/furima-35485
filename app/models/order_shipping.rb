@@ -11,8 +11,8 @@ class OrderShipping
     validates :prefecture_id, numericality: { other_than: 1}
     validates :address
     validates :town
-    validates :tel,length: {minimum: 10, message: "is too short"}
-    validates :tel,length: {maximum: 11, message: "is too long"}
+    validates :tel,length: {minimum: 10, message: "is too short"},allow_blank: true
+    validates :tel,length: {maximum: 11, message: "is too long"}, allow_blank: true
     validates :tel,format: {with: /\A[0-9]{10,11}\z/, message: "is invalid. Input only number"}
   end
 
